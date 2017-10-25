@@ -1,54 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="app">
     <head>
-        <script src="./lib/angular/angular.min.js"></script>
-        <script src="main.js"></script>        
+        <script src="./lib/angular/angular.min.js"></script>        
+        <script src="./main.js"></script>        
     </head>
-    <body>ANGULAR!!!
-        <hr>
-
-        <div ng-init="text='test'">
-            {{text}}
+    <body>
+        <div ng-controller="MainController as mainC"> 
+            <div style="width:50%;float:left">
+                <my-input></my-input>
+                <my-text text="str"></my-text>
+            </div>
+            <div style="width:50%;float:right">
+                <my-list arr="listArr" filter="animal"></my-list>
+            </div>
         </div>
-        <div ng-init="list=['test1',
-                            'test2', 
-                            'test3',
-                            'test4',
-                            'test5',
-                            'test6']">
-        </div>
-
-        <div >
-            <input ng-model="searchList" type="text" name="name" /> 
-        </div>
-        
-        <div >
-            <ul >
-                <li ng-repeat="li in list | filter:searchList | orderBy ">{{li}}</li>
-            </ul>
-        </div> 
-
-        <div ng-controller="SettingsController1 as settings">
-            <input type="text" ng-model="fname">
-            <input type="button" ng-click="settings.addName(fname)" />
-                <ul >
-                    <li ng-repeat ="name in settings.names | filter:searchList | orderBy track by $index">{{name}}</li>
-                </ul>
-                
-        </div>
-
-
     </body>
-    
 </html>
-
-
-<style>
-.row{
-    display:table-row
-}
-
-.col{
-    display: table-cell
-}
-</style>
